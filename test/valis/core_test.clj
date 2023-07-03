@@ -1,6 +1,6 @@
-(ns valis-clj.core-test
+(ns valis.core-test
   (:require [clojure.test :refer :all]
-            [valis-clj.core :refer :all]))
+            [valis.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
