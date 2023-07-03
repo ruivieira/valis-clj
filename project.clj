@@ -5,4 +5,6 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [cheshire "5.10.1"]]
-  :repl-options {:init-ns valis.core})
+  :repl-options {:init-ns valis.core}
+  :plugins [[lein-codox "0.10.8"]]
+  :codox {:output-path "docs"})
