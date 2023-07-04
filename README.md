@@ -1,3 +1,4 @@
+[![Clojars Project](https://img.shields.io/clojars/v/dev.ruivieira/valis.svg)](https://clojars.org/dev.ruivieira/valis)
 [![valis-clj CI](https://github.com/ruivieira/valis-clj/actions/workflows/CI.yaml/badge.svg)](https://github.com/ruivieira/valis-clj/actions/workflows/CI.yaml)
 [![bb compatible](https://raw.githubusercontent.com/babashka/babashka/master/logo/badge.svg)](https://babashka.org)
 # valis-clj

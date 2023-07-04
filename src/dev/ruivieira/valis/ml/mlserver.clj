@@ -1,4 +1,4 @@
-(ns valis.ml.mlserver
+(ns dev.ruivieira.valis.ml.mlserver
    (:require [cheshire.core :as json]
             [clojure.java.io :as io]))
 

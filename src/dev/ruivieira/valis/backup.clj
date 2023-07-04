@@ -1,7 +1,7 @@
-(ns valis.backup
+(ns dev.ruivieira.valis.backup
   (:require [clojure.string :as str]
             [babashka.process :as p]
-         [valis.log :as log]))
+         [dev.ruivieira.valis.log :as log]))
 
 (defn read-wasabi-variables []
   (let [env-keys ["WASABI_KOPIA_BUCKET" "WASABI_KOPIA_ACCESS_KEY" "WASABI_KOPIA_SECRET_KEY" "WASABI_KOPIA_ENDPOINT" "KOPIA_PASSWORD"]]

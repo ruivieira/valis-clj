@@ -1,4 +1,4 @@
-(ns valis.log
+(ns dev.ruivieira.valis.log
   (:require [clj-commons.ansi :as ansi]))
 
 (defn ok [x]
