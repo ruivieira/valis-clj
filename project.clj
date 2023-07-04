@@ -4,7 +4,9 @@
   :license {:name "GPLv3"
             :url "https://www.gnu.org/licenses/gpl-3.0.en.html#license-text"}
   :dependencies [[org.clojure/clojure "1.11.1"]
-                 [cheshire "5.10.1"]]
+                 [cheshire "5.10.1"]
+                 [org.clj-commons/pretty "2.0-beta-1"]
+                 [babashka/process "0.5.21"]]
   :repl-options {:init-ns valis.core}
   :plugins [[lein-codox "0.10.8"]]
   :codox {:output-path "docs"})
