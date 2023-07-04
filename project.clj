@@ -6,7 +6,8 @@
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [cheshire "5.10.1"]
                  [org.clj-commons/pretty "2.0-beta-1"]
-                 [babashka/process "0.5.21"]]
+                 [babashka/process "0.5.21"]
+                 [http-kit "2.7.0"]]
   :repl-options {:init-ns dev.ruivieira.valis.core}
   :plugins [[lein-codox "0.10.8"]]
   :codox {:output-path "docs"})
