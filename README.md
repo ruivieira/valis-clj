@@ -3,6 +3,8 @@
 [![bb compatible](https://raw.githubusercontent.com/babashka/babashka/master/logo/badge.svg)](https://babashka.org)
 # valis-clj
 
+![valis](docs/valis-core-small.png)
+
 A Clojure library for personal workflows.
 
 ## Installation
