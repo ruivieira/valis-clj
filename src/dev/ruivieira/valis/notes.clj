@@ -1,6 +1,7 @@
 (ns dev.ruivieira.valis.notes)
 
 (require '[babashka.fs :as fs]
+         '[dev.ruivieira.valis.core :as core]
          '[clj-yaml.core :as yaml]
          '[clojure.string :as str])
 
@@ -26,16 +27,16 @@
     (if (and frontmatter contents)
       (let [frontmatter (try
                           (yaml/parse-string frontmatter)
-                          (catch Exception _ {}))] ;; if YAML parsing fails, return an empty map
-        {:path path
-         :title (-> path fs/file .getName (str/replace #"\.md$" ""))
+                          (catch Exception _ {}))]          ;; if YAML parsing fails, return an empty map
+        {:path        path
+         :title       (-> path fs/file .getName (str/replace #"\.md$" ""))
          :frontmatter frontmatter
-         :contents contents})
+         :contents    contents})
       ;; if there's no frontmatter, treat the whole content as the main content
-      {:path path
-       :title (-> path fs/file .getName (str/replace #"\.md$" ""))
+      {:path        path
+       :title       (-> path fs/file .getName (str/replace #"\.md$" ""))
        :frontmatter {}
-       :contents full-contents})))
+       :contents    full-contents})))
 
 (defn publishable? [file-data]
   (true? (or (= "true" (:publish (:frontmatter file-data))) ;; Check if string "true"
@@ -65,8 +66,17 @@
                  scheduled (first (re-seq #"(?<=⏳ )\d{4}-\d{2}-\d{2}" line))
                  due (first (re-seq #"(?<=📅 )\d{4}-\d{2}-\d{2}" line))]
              (cond-> {:status status :task line}
-               priority (assoc :priority priority)
-               start-date (assoc :start-date start-date)
-               scheduled (assoc :scheduled scheduled)
-               due (assoc :due due))))
+                     priority (assoc :priority priority)
+                     start-date (assoc :start-date start-date)
+                     scheduled (assoc :scheduled scheduled)
+                     due (assoc :due due))))
          task-lines)))
+
+(defn remaining-days
+  "Takes a task map and returns the remaining days based on either due or scheduled date."
+  [task]
+  (let [today (java.time.LocalDate/now)
+        today-str (.format today (java.time.format.DateTimeFormatter/ofPattern "yyyy-MM-dd"))
+        {:keys [due scheduled]} task
+        due-date (or due scheduled)]
+    (when due-date (core/date-difference-in-days today-str due-date))))
