@@ -1,4 +1,4 @@
-(ns valis.kserve
+(ns dev.ruivieira.valis.tests.kserve
   (:require [clojure.test :refer :all]
             [dev.ruivieira.valis.ml.kserve :refer :all]))
 

@@ -7,7 +7,10 @@
                  [cheshire "5.10.1"]
                  [org.clj-commons/pretty "2.0-beta-1"]
                  [babashka/process "0.5.21"]
-                 [http-kit "2.7.0"]]
+                 [babashka/fs "0.4.19"]
+                 [http-kit "2.7.0"]
+                 [clj-commons/clj-yaml "1.0.26"]
+                 [org.flatland/ordered "1.15.11"]]
   :repl-options {:init-ns dev.ruivieira.valis.core}
   :plugins [[lein-codox "0.10.8"]]
   :codox {:output-path "docs"})
